@@ -27,5 +27,11 @@ module Types
     def test_field
       "Hello World!"
     end
+
+    field :bookmarks, [Types::BookmarkType], null: false,
+      description: "Returns a list of all bookmarks"
+    def bookmarks
+      Bookmark.all
+    end
   end
 end
