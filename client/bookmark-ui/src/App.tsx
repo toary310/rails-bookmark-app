@@ -1,5 +1,5 @@
 import { gql, useQuery } from '@apollo/client';
-import './App.css';
+import styles from './App.module.css'; // Import CSS Modules
 
 // Define the GraphQL query
 const GET_BOOKMARKS = gql`
@@ -13,7 +13,7 @@ const GET_BOOKMARKS = gql`
   }
 `;
 
-// Define a type for the bookmark data (optional but good practice)
+// Define a type for the bookmark data
 interface Bookmark {
   id: string;
   url: string;
@@ -28,34 +28,32 @@ interface BookmarksData {
 function App() {
   const { loading, error, data } = useQuery<BookmarksData>(GET_BOOKMARKS);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :( {error.message}</p>;
+  if (loading) return <div className={styles.loading}>Loading...</div>;
+  if (error) return <div className={styles.error}>Error :( {error.message}</div>;
 
   return (
-    <>
-      <h1>My Bookmarks</h1>
+    <div className={styles.container}>
+      <h1 className={styles.title}>Bookmarks</h1>
       {data && data.bookmarks.length > 0 ? (
-        <ul>
+        <div className={styles.gridContainer}>
           {data.bookmarks.map((bookmark) => (
-            <li key={bookmark.id}>
-              <p>
-                <strong>Title:</strong> {bookmark.title || 'N/A'}
-              </p>
-              <p>
-                <strong>URL:</strong> <a href={bookmark.url} target="_blank" rel="noopener noreferrer">{bookmark.url}</a>
-              </p>
+            <div className={styles.card} key={bookmark.id}>
+              <div> {/* Content wrapper for flex spacing */}
+                <h2 className={styles.cardTitle}>{bookmark.title || 'N/A'}</h2>
+                <a href={bookmark.url} target="_blank" rel="noopener noreferrer" className={styles.cardUrl}>
+                  {bookmark.url}
+                </a>
+              </div>
               {bookmark.notes && (
-                <p>
-                  <strong>Notes:</strong> {bookmark.notes}
-                </p>
+                <p className={styles.cardNotes}>{bookmark.notes}</p>
               )}
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       ) : (
-        <p>No bookmarks yet!</p>
+        <p className={styles.noBookmarks}>No bookmarks yet!</p>
       )}
-    </>
+    </div>
   );
 }
 

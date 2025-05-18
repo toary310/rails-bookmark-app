@@ -1,0 +1,68 @@
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.loading,
+.error,
+.noBookmarks {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1.2em;
+}
+
+.error {
+  color: red;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensure content and notes are spaced */
+  height: 100%; /* Make cards in a row the same height */
+}
+
+.cardTitle {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.cardUrl {
+  color: #007bff;
+  text-decoration: none;
+  word-break: break-all;
+  margin-bottom: 10px;
+}
+
+.cardUrl:hover {
+  text-decoration: underline;
+}
+
+.cardNotes {
+  font-size: 0.95em;
+  white-space: pre-wrap;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: auto; /* Push notes to the bottom if card content is short */
+}
