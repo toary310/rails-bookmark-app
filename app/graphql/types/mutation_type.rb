@@ -2,6 +2,7 @@
 
 module Types
   class MutationType < Types::BaseObject
+    field :delete_bookmark, mutation: Mutations::DeleteBookmark
     field :update_bookmark, mutation: Mutations::UpdateBookmark
     field :create_bookmark, mutation: Mutations::CreateBookmark
     # TODO: remove me
