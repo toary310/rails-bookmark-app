@@ -114,6 +114,8 @@ GEM
       raabro (~> 1.4)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    graphiql-rails (1.10.5)
+      railties
     graphql (2.5.7)
       base64
       fiber-storage
@@ -347,6 +349,7 @@ DEPENDENCIES
   brakeman
   capybara
   debug
+  graphiql-rails
   graphql
   importmap-rails
   jbuilder
