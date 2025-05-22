@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Grok AI チャットボット
 
-## Getting Started
+Next.js 14（App Router）を使用したAIチャットボットインターフェース。xAIのGrok APIと統合し、リアルタイムでAIと対話できます。
 
-First, run the development server:
+## 機能
+
+- Grok API統合によるAIチャット機能
+- Tailwind CSSを使用したモダンなUI
+- ダーク/ライトモード切り替え
+- ローカルストレージによる会話履歴の保存
+- レスポンシブデザイン（モバイル対応）
+- Web Speech APIを使用した音声入力機能
+
+## セットアップ方法
+
+### 前提条件
+
+- Node.js 18.0.0以上
+- Grok API キー（[https://x.ai/api](https://x.ai/api)から取得）
+
+### インストール
+
+1. リポジトリをクローン
+```bash
+git clone <repository-url>
+cd grok-chat-app
+```
+
+2. 依存関係をインストール
+```bash
+npm install
+```
+
+3. 環境変数の設定
+`.env.local`ファイルをプロジェクトのルートに作成し、以下の内容を追加：
+```
+NEXT_PUBLIC_GROK_API_URL=https://api.x.ai
+NEXT_PUBLIC_GROK_API_KEY=your_grok_api_key_here
+```
+
+### 開発サーバーの起動
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ブラウザで [http://localhost:3000](http://localhost:3000) を開いてアプリケーションを確認できます。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 本番用ビルド
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+### 本番モードでの実行
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Vercelへのデプロイ
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+このプロジェクトは[Vercel](https://vercel.com)へ簡単にデプロイできます。
 
-## Deploy on Vercel
+1. [Vercel](https://vercel.com)にアカウントを作成
+2. プロジェクトをインポート
+3. 環境変数`NEXT_PUBLIC_GROK_API_KEY`を設定
+4. デプロイ
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 技術スタック
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Next.js 14](https://nextjs.org/)
+- [React](https://reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [next-themes](https://github.com/pacocoursey/next-themes)
+- [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API)
